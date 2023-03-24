@@ -44,12 +44,13 @@ function Edit() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = {
-            name: event.currentTarget.name.value,
-            numbers: telefones.map((number) => number.toString()),
-            email: event.currentTarget.email.value,
-            cpf: event.currentTarget.cpf.value,
-            date_born: event.currentTarget.date_born.value
-            };
+    name: (event.currentTarget.elements.namedItem("name") as HTMLInputElement).value,
+    numbers: telefones.map((number) => number.toString()),
+    email: (event.currentTarget.elements.namedItem("email") as HTMLInputElement).value,
+    cpf: (event.currentTarget.elements.namedItem("cpf") as HTMLInputElement).value,
+    date_born: (event.currentTarget.elements.namedItem("date_born") as HTMLInputElement).value
+  };
+
         axios.put(`http://teste-frontend.saperx.com.br/api/schedule/${id}`, data)
             .then(response => {
                 console.log(response);
