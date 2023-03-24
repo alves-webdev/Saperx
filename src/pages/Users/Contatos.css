@@ -66,14 +66,14 @@ html, body {
   .Card{
     background-color: #4F4F4F;
     border-radius: 10px;
-    box-shadow: 0px 2px 4px #383838;
+    box-shadow: 0px 2px 4px #000000;
     display: flex;
     align-items: center;
     justify-content: space-between; /* updated */
     transition: all 0.3s ease-in-out;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: #ffffff;
+    align-items: center;
+    color: #dfdfdf;
     width: 40vw;
     height: 9vh;
     gap: 1rem;
@@ -97,8 +97,8 @@ html, body {
     background-color: #B1D4E8;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .Edit:hover{
@@ -110,8 +110,8 @@ html, body {
     background-color: #D7B9B9;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .Delete:hover{
@@ -124,12 +124,13 @@ html, body {
     border-radius: 10%;
 }
 
-@media screen and (max-width: 1024px) {
+
+@media screen and (max-width: 992px) {
     .Card{
         flex-direction: column;
         gap: 0rem;
-        width: 50vw;
-        height: 15vh;
+        width: 45vw;
+        height: 20vh;
         gap: 0rem;
         font-size: 0.5rem;
         padding-right: 0em;
@@ -142,9 +143,19 @@ html, body {
     }
 
     .Card__buttons img {
-        width: 4vw;
+        width: 7vw;
     }
-    
+
+    .Delete{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .Edit{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -178,4 +189,5 @@ html, body {
         padding-right: 1rem;
     }
 
+    
   }

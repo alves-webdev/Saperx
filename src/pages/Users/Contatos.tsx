@@ -57,7 +57,9 @@ function Contatos() {
             <img src={saperlogo} alt="Vite Logo" />
             </Link>
             <input type="text" placeholder="Pesquisar" onChange={e => setPesquisa(e.target.value)} />
-            <Link to ="/registro" className="Link">Adicionar contato</Link>
+            <Link to ="/registro" className="Link">
+                    Adicionar contato
+                </Link>
             <div className="cards-container">
                 {contatos.filter((val) => {
                     if (Pesquisa === "") {
