@@ -1,7 +1,7 @@
 import React from 'react'
 import './card.css'
-import Editsvg from '../../assets/edit.svg'
-import Delete from '../../assets/delete.svg'
+import Editsvg from '../../assets/editlogo.svg'
+import Delete from '../../assets/deletelogo.svg'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
