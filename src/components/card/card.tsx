@@ -1,6 +1,6 @@
 import React from 'react'
 import './card.css'
-import Edit from '../../assets/edit.svg'
+import Editsvg from '../../assets/edit.svg'
 import Delete from '../../assets/delete.svg'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -28,7 +28,7 @@ export default function Card({ name, phoneNumbers, id}: Props) {
       <div className='Card__buttons'>
         
         <Link to={`/edit/${id}`}>
-          <img src={Edit} alt="Edit" className='Edit' />
+          <img src={Editsvg} alt="Edit" className='Edit' />
         </Link>
         <img src={Delete} alt="Delete" className='Delete' onClick={() => axios.delete(`http://teste-frontend.saperx.com.br/api/schedule/${id}`)} />
     </div>
