@@ -39,11 +39,12 @@ function Registro() {
         event.preventDefault();
         const data = {
             name: event.currentTarget.nome.value,
-            numbers: telefones.map((number) => ({ number })),
+            numbers: telefones.map((number) => number),
             email: event.currentTarget.email.value,
             cpf: event.currentTarget.cpf.value,
             date_born: event.currentTarget.data_nascimento.value
-        };
+         };
+         
         axios.post('http://teste-frontend.saperx.com.br/api/schedule', data)
             .then(response => console.log(response))
             .catch(error => console.log(error));
