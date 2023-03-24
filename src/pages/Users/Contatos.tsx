@@ -4,7 +4,8 @@ import saperlogo from '../../assets/saperx.svg'
 import './Contatos.css'
 import { useState } from 'react'
 import axios from 'axios'
-import Card from "../../components/card/card"
+import Editsvg from '../../assets/editlogo.svg'
+import Delete from '../../assets/deletelogo.svg'
 
 
 
@@ -23,18 +24,32 @@ function Contatos() {
     const [loading, setLoading] = useState(true);
     const [Pesquisa, setPesquisa] = useState('');
 
-
+//will this create an infinite loop?
     useEffect(() => {
         axios.get('http://teste-frontend.saperx.com.br/api/schedule')
             .then(response => {
                 setContatos(response.data.data);
                 setLoading(false);
             })
-    }, []);
+    }, [])
+
+    const handleDelete = (id: number) => {
+        axios.delete(`http://teste-frontend.saperx.com.br/api/schedule/${id}`)
+            .then(response => {
+                if (response.status === 200) {
+                    alert("Contato deletado com sucesso");
+                    window.location.reload();
+                } else {
+                    alert("Erro ao deletar contato");
+                }
+            })
+
+    }
 
     if (loading) {
         return <p>Carregando...</p>
     }
+
 
     return (
         <div className='Contatos'>
@@ -51,7 +66,16 @@ function Contatos() {
                         return val
                     }
                 }).map(contato => (
-                    <Card key={contato.id} name={contato.name} phoneNumbers={contato.numbers} id={contato.id} />
+                    <div className = "Card" key={contato.id}>
+                    <h1>{contato.name}</h1>
+                    <h1>{contato.numbers[0].number}</h1>
+                    <div className='Card__buttons'>
+                        <Link to={`/edit/${contato.id}`}>
+                            <img src={Editsvg} alt="Edit" className='Edit' />
+                        </Link>
+                        <img src={Delete} alt="Delete" className='Delete' onClick={() => handleDelete(contato.id)} />
+                    </div>
+                    </div>
                 ))}
             </div>
         </div>

@@ -1,6 +1,8 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import saperlogo from '../../assets/saperx.svg'
+import Editsvg from '../../assets/editlogo.svg'
+import Delete from '../../assets/deletelogo.svg'
 import './Registro.css'
 import axios from 'axios'
 
@@ -14,6 +16,7 @@ interface Props {
 
 function Registro() {
     const [telefones, setTelefones] = useState<string[]>([""]);
+    const navigate = useNavigate();
 
     const handleAddTelefone = () => {
         setTelefones([...telefones, ""]);
@@ -46,7 +49,19 @@ function Registro() {
          };
          
         axios.post('http://teste-frontend.saperx.com.br/api/schedule', data)
-            .then(response => console.log(response))
+            .then(response => {
+                
+                console.log(response);
+
+                if (response.status === 200) {
+                    alert("Contato cadastrado com sucesso");
+                    //route user back to /contatos
+                    navigate('/contatos');
+
+                } else {
+                    alert("Erro ao cadastrar contato, tente novamente.");
+                }}
+            )
             .catch(error => console.log(error));
     }
 

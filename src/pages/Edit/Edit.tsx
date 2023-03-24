@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import saperlogo from "../../assets/saperx.svg";
 import "./Edit.css";
 import axios from "axios";
@@ -13,6 +13,7 @@ interface User {
   }  
 
 function Edit() {
+    const navigate = useNavigate();
   const [users, setUsers] = useState<User[]>([]);
   const { id } = useParams<{ id: string }>();
   const [selectedUser, setSelectedUser] = useState<User>();
@@ -42,36 +43,26 @@ function Edit() {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        const name = data.get("name");
-        const email = data.get("email");
-        const numbers = telefones;
-        const cpf = data.get("cpf");
-        const date_born = data.get("date_born");
-        const id = selectedUser?.id;
-        const number = telefones;
-        const body = {
-            name,
-            email,
-            numbers,
-            cpf,
-            date_born,
-            id,
-            number
-        }
-        axios.put(`http://teste-frontend.saperx.com.br/api/schedule/${id}`, body)
+        const data = {
+            name: event.currentTarget.name.value,
+            numbers: telefones.map((number) => number.toString()),
+            email: event.currentTarget.email.value,
+            cpf: event.currentTarget.cpf.value,
+            date_born: event.currentTarget.date_born.value
+            };
+        axios.put(`http://teste-frontend.saperx.com.br/api/schedule/${id}`, data)
             .then(response => {
                 console.log(response);
                 if (response.status === 200) {
                     alert("Contato editado com sucesso");
-                } else {
-                    alert("Erro ao editar contato, tente novamente.");
+                    //route user back to /contatos
+                    navigate('/contatos');
                 }
             })
             .catch(error => {
                 console.log(error);
-            }
-            );
+                alert(error);
+            })
     }
 
     const handleAddTelefone = () => {
