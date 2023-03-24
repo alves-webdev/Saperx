@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+}
+
+.Registro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.Link{
+  color: #D31A1A;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0px 2px 4px #000000;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.Link:hover{
+  color: #d42e2e;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.Form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.Form input{
+  width: 80%;
+  height: 2rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Buttons button{
+  width: 50%;
+  height: 2rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0 2rem;
+  background-color: #D31A1A;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #fffcfc;
+}
+
+.Buttons button:hover{
+  background-color: #d42e2e;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.telebuttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.telebuttons button{
+  width: 45%;
+  height: 2rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  background-color: #D31A1A;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #fffcfc;
+}
+
+.telebuttons button:hover{
+  background-color: #d42e2e;
+  cursor: pointer;
+}
