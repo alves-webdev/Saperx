@@ -1,8 +1,8 @@
-# 📞📖 Desafio SapeX front-end - Documentação
+# 📞📖 Desafio SaperX front-end - Documentação
 
 Esta documentação visa abordar os pontos propostos no desafio e exemplificar como foram feitos.
 
-Como nada foi dito sobre design, foi utilizado o mesmo esquema de cores da Sapex em um design mobile-first.
+Como nada foi dito sobre design, foi utilizado o mesmo esquema de cores da Saperx em um design mobile-first.
 
 Tecnologias utilizadas:
 React, Typescript, Vite, CSS, Axios, Figma, React-Router-dom
